@@ -1,8 +1,13 @@
 import React from 'react';
+import Home from './Home';
 
 
 export const App = () => (
   <div> 
-    Hello World!!
+    
+    <Home/> 
+    <div className="projects">
+
+    </div>
   </div>
 );
