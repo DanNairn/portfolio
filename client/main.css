@@ -1,4 +1,6 @@
+/* Preset Application Styles */
 :root{
+  --white: #FFF;
   --dark: #0B0C10;
   --dark-secondary: #1F2833;
   --light-blue: #66FCF1;
@@ -15,6 +17,7 @@ body{
   font-family: 'Oswald', sans-serif;
 }
 
+/* Home Route Styles */
 .home{
   position: relative;
   height: 100vh;
@@ -25,44 +28,109 @@ body{
   align-items: center;
 }
 
-.homeNav {
+.home h1{
+  color: var(--light-blue);
+  font-size: 8rem;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 17px 17px 30px black;
+  opacity: 0;
+  animation: fadeTextIn 3s ease 1 forwards;
+}
+
+.home h1::after{
+  content: "";
+  min-width: 100px;
+  min-height: 4px;
+  display: block;
+  background-color: var(--light-blue);
+  /* box-shadow: 0px 0px 15px #66FCFc; */
+}
+
+.home h1:hover::after, .home h1:hover::before{
+  background-color: var(--dark-secondary);
+}
+
+.home h6{
+  color: var(--white);
+  font-size: 2rem;
+  text-transform: capitalize;
+  letter-spacing: 0.5rem;
+  opacity: 0;
+  animation: fadeTextIn 3s ease 1s 1 forwards;
+  margin: 20px;
+}
+
+.homeNav{
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   color: var(--light-blue);
+  opacity: 0;
+  animation: fadeTextIn 3s ease 2s 1 forwards;
 }
 
-.glass {
-  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
+@keyframes fadeTextIn {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+/* About Route Styles */
+
+.about{
+  background: linear-gradient(135deg, var(--dark-secondary) 40%, var(--dark) 60%);
+  height: 100vh;
+}
+
+/* Projects Route Styles */
+
+.projects{
+  background: linear-gradient(135deg, var(--dark-secondary) 40%, var(--dark) 60%);
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: initial;
+  gap: 10px;
+}
+
+.projectDisplayer{
+  width: 500px;
+  height: 350px;
+  border: 3px solid white;
+  border-radius: 10px 0px 10px 0px;
+  overflow: hidden;
+  object-fit: contain;
+  margin: auto;
+  /* display: flex; */
+}
+
+.projectDisplayer:hover  {
+  border: none;
+}
+
+
+/* GlassButton Styles */
+.glass{
+  position: relative;
+  color: var(--white);
+  width: 200px;
+  margin: 20px;
+  padding: 5px 10px;
   background: rgba(255, 255, 255, 0.1);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);  
   backdrop-filter: blur(5px);
-  margin: 2px;
-  min-width: 100px;
-  text-align: center;
-}
-
-.homeNav > ul {
-  list-style: none;
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-}
-
-.homeNav > ul > li {
-  position: relative;
-  align-items: center;
-  color: rgba(255, 255, 255, 1);
-  opacity: 0;
-  animation: fadeTextIn 3s ease 2s 1 forwards;
-  transition: 0.5s;
   overflow: hidden;
 }
 
-.glass > span::before{
+.glass:active{
+  border-style: outset;
+}
+
+.glass::before{
   content: '';
   position: absolute;
   top: 0; 
@@ -74,79 +142,11 @@ body{
   transition: 1s;
 }
 
-.glass:hover span::before {
+.glass:hover::before {
   transform: skewX(45deg) translateX(200%);
 }
 
-.glass:hover span {
-  color: var(--light-blue);
-}
-
-.homeNav > ul > li, .homeNav > i{
-  padding: 5px 10px;
-}
-
-.home > h1{
-  color: var(--light-blue);
-  font-size: 8rem;
-  text-transform: uppercase;
-  opacity: 0;
-  animation: fadeTextIn 3s ease 1 forwards;
-  text-align: center;
-  text-shadow: 7px 7px 3px black;
-}
-
-.home > h6{
-  font-size: 2rem;
-  text-transform: capitalize;
-  letter-spacing: 0.5rem;
-  opacity: 0;
-  animation: fadeTextIn 3s ease 1s 1 forwards;
-  margin: 20px;
-}
-
-.home > p{
-  margin-top: 4rem;
-  opacity: 0;
-  animation: fadeTextIn 3s ease 3s 1 forwards;
-}
-
-.home > h6, .home > p{
-  color: white;
- 
-}
-
-.icon-container{
-  width: 40px;
-  height: 40px;
-  text-align: center;
-}
-
-
-@keyframes bounceIcon {
-  0% {transform: translateY(0px);}
-  50% {transform: translateY(15px);}
-  100% {transform: translatey(0px)};
-}
-
-@keyframes fadeTextIn {
-  0%{opacity: 0;}
-  100%{opacity: 1;}
-}
-
-
-.icon-container > i {
-  color: var(--light-blue);
-  opacity: 0;
-  animation: fadeTextIn 3s ease 3s 1 forwards, bounceIcon 1.25s linear infinite;
-}
-
-.projects{
-  height: 100vh;
-  width: 100%;
-  background-color: lightblue;
-}
-
+/* Medium Media  */
 @media only screen and (max-width: 768px) {
   .home > h1{
     color: var(--light-blue);
